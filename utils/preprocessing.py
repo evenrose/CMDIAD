@@ -146,7 +146,7 @@ def preprocess_pc(tiff_path):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Preprocess of Dataset')
     parser.add_argument('--dataset_path','-d', default='datasets/mvtec_3d/', type=str, help='path to dataset')
-    parser.add_argument('--num_process', '-n', default=2)
+    parser.add_argument('--num_process', '-n', default=6)
     args = parser.parse_args()
 
     mp.set_start_method('spawn')

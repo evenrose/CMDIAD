@@ -136,7 +136,7 @@ if __name__ == '__main__':
                         help='Save predicts results.')
 
     parser.add_argument('--img_process_method', default='cpu_v1', type=str)
-    parser.add_argument('--cpu_core_num', default=8, type=int)
+    parser.add_argument('--cpu_core_num', default=6, type=int)
     parser.add_argument('--experiment_note', default='', type=str)
     parser.add_argument('--coreset_dtype', default='FP16', type=str)
     parser.add_argument('--similarity_only', default=False, action='store_true')
