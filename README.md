@@ -34,14 +34,14 @@ python utils/preprocessing.py --dataset_path datasets/mvtec_3d/
 ### Checkpoints
 | Purpose                               | Checkpoint                                                                                          |
 |---------------------------------------|-----------------------------------------------------------------------------------------------------|
-| Point Clouds (PCs) feature extractor  | [Point-MAE](https://drive.google.com/file/d/1CCiYO9MazSIRpA4Q5_lGWuAYPAkj7X7w/view?usp=sharing)     |
-| RGB Images feature extractor          | [DINO](https://drive.google.com/file/d/1fOEhASxuygcP-vnnrn1AlzFXbnEC-0CK/view?usp=sharing)          |
-| Feature-to-Feature network (main PCs) | [MTFI_FtoF_PCs](https://drive.google.com/file/d/1SzQgPsLLxEYtzYOCs0YYh1GYhZG776iF/view?usp=sharing) |
-| Feature-to-Input network (main PCs)   | [MTFI_FtoI_PCs](https://drive.google.com/file/d/1LPl6bAHrJiLdY-w0vwNWeiyai4L7amMr/view?usp=sharing) |
-| Input-to-Feature network (main PCs)   | [MTFI_ItoF_PCs](https://drive.google.com/file/d/1hD1J8XMlpelRYbOFwgkGHtJ05XsFG1Qk/view?usp=sharing) |
-| Feature-to-Feature network (main RGB) | [MTFI_FtoF_RGB](https://drive.google.com/file/d/1N6QHaD4KhUy04C98jbg9m9hDjOu3YVJk/view?usp=sharing) |
-| Feature-to-Input network (main RGB)   | [MTFI_FtoI_RGB](https://drive.google.com/file/d/1Xkpn7sISaoz4I63DimvRBc2kknw2dZRr/view?usp=sharing) |
-| Input-to-Feature network (main RGB)   | [MTFI_ItoF_RGB](https://drive.google.com/file/d/1QqQccrk_whV0shnphSSJyMVPijlpKjcz/view?usp=sharing) |
+| Point Clouds (PCs) feature extractor  | [Point-MAE](https://www.dropbox.com/scl/fi/paum3yx6rbpdxbdbytb6m/pointmae_pretrain.7z?rlkey=qc44l0sf8971gm9pcr0tbteyl&st=zlk1i4g3&dl=0)     |
+| RGB Images feature extractor          | [DINO](https://www.dropbox.com/scl/fi/u082nmb3t7enxpqkn6jk3/dino_vitbase8_pretrain.7z?rlkey=l3uqnh9xfuuumvuzvdp7akbe7&st=h2l7cuj2&dl=0)          |
+| Feature-to-Feature network (main PCs) | [MTFI_FtoF_PCs](https://www.dropbox.com/scl/fi/18ixb16bm0ht4li4pgiuu/MTFI_FtoF_PCs.7z?rlkey=ji9c7p0gjjadnw8crszrl99x9&st=ebgbsadn&dl=0) |
+| Feature-to-Input network (main PCs)   | [MTFI_FtoI_PCs](https://www.dropbox.com/scl/fi/g8x64o0t8mi4azxe7hj2w/MTFI_FtoI_PCs.7z?rlkey=srey47rfji710xo10kwqidl41&st=98stctfa&dl=0) |
+| Input-to-Feature network (main PCs)   | [MTFI_ItoF_PCs](https://www.dropbox.com/scl/fi/dq9t08s8yrp911b3k9heh/MTFI_ItoF_PCs.7z?rlkey=qsdz1sb2vpxanl2o21udsb238&st=2ec27v42&dl=0) |
+| Feature-to-Feature network (main RGB) | [MTFI_FtoF_RGB](https://www.dropbox.com/scl/fi/phh6mpianhr9ffci3b8pe/MTFI_FtoF_RGB.7z?rlkey=w0vs3cyf4ynrw6016px1cpjwm&st=7eik0z5w&dl=0) |
+| Feature-to-Input network (main RGB)   | [MTFI_FtoI_RGB](https://www.dropbox.com/scl/fi/9lgeqw8bx5oa2yucfunaz/MTFI_FtoI_RGB.7z?rlkey=iufhvqkz7vv2tik89fmnuq2s9&st=5o06g2lm&dl=0) |
+| Input-to-Feature network (main RGB)   | [MTFI_ItoF_RGB](https://www.dropbox.com/scl/fi/jivd2yfe7fk9igj4ikpyf/MTFI_ItoF_RGB.7z?rlkey=3mxf9yor5bfin22vd3j7pjfwd&st=sfva1kym&dl=0) |
 >📋  Please put all checkpoints in folder `checkpoints`. 
 
 ## Training
@@ -69,7 +69,7 @@ python hallucination_network_pretrain.py \
 >📋 For MTFI pipeline with Feature-to-Feature distillation network, PCs or RGB images as the main modality are trained simultaneously.
 > You can define the maximum number of threads with `--cpu_core_num` and leave your note through `--experiment_note`.
 > The results are saved in the `results` folder.
-> If you need to output the raw anomaly scores at image or pixel level to a file, add `--save_raw_results` or `--save_seg_results`.
+> If you need to output the raw anomaly scores at image or pixel level to a file, add `--save_raw_results` or `--save_seg_results`. You can use `utils/heatmap` to generate similar visualized results.
 
 ### MTFI pipeline with Feature-to-Input distillation network:
 To save the features for distillation network training:
