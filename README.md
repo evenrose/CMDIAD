@@ -1,7 +1,7 @@
 # Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD
 
 This repository is the official implementation of 
-[Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD](). 
+[Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD](https://arxiv.org/pdf/2405.13571). 
 
 ## Visualization of Some Prediction Results
 ![fig1](./figures/fig1.png)
@@ -199,7 +199,14 @@ python main.py \
 ## Citation
 If you think this repository is helpful for your project, please use the following.
 ```
-
+@misc{sui2024crossmodal,
+      title={Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD}, 
+      author={Wenbo Sui and Daniel Lichau and Josselin Lefèvre and Harold Phelippeau},
+      year={2024},
+      eprint={2405.13571},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 ## Acknowledgement
 We appreciate the following github repos for their valuable code:
