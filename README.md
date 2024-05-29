@@ -11,15 +11,28 @@ We implement this repo with the following environment:
 * Ubuntu 22.04
 * CUDA 12.1
 * Python 3.11
+* Pytorch 2.2.0
 
 To install requirements:
 
 ```setup
+# Please install Pytorch first before other packages
+
+# Install KNN_CUDA
+pip install --upgrade https://github.com/unlimblue/KNN_CUDA/releases/download/0.2/KNN_CUDA-0.2-py3-none-any.whl
+# Install Pointnet2_PyTorch(pointnet2_ops)
+git clone https://github.com/erikwijmans/Pointnet2_PyTorch.git
+cd Pointnet2_PyTorch
+pip install -r requirements.txt
+# You may encounter compilation issues for Pointnet2_PyTorch (see attached note). 
+
+# Now you can go back and install other packages for CMDIAD :)
 pip install -r requirements.txt
 ```
 
 >📋  Sometimes conda's version control will cause the installation failure. We recommend using venv or conda to create 
-> a virtual environment and then use pip to install all packages.
+> a virtual environment and then use pip to install all packages. 
+> If you encountered compilation issues for Pointnet2_PyTorch, please modify `pointnet2_ops_lib/setup.py` with my attempts [Pull request](https://github.com/erikwijmans/Pointnet2_PyTorch/pull/177/files)
 
 ## Dataset and Pre-trained Models
 ### Dataset
