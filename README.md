@@ -71,7 +71,8 @@ python main.py \
 ```
 > The results are saved in the `results` folder.
 > If you need to output the raw anomaly scores at image or pixel level to a file, add `--save_raw_results` or `--save_seg_results`. You can use `utils/heatmap` to generate similar visualized results.
-> 
+> You can define the maximum number of threads with `--cpu_core_num` and leave your note through `--experiment_note`.  
+
 To train MTFI pipeline with Feature-to-Feature distillation network:
 ```
 python hallucination_network_pretrain.py \
@@ -83,7 +84,6 @@ python hallucination_network_pretrain.py \
 --num_workers 2 \
 ```
 >📋 For MTFI pipeline with Feature-to-Feature distillation network, PCs or RGB images as the main modality are trained simultaneously.
-> You can define the maximum number of threads with `--cpu_core_num` and leave your note through `--experiment_note`.  
 > If you think your GPU memory is really not enough, maybe try with `--accum_iter 2` for Gradient Accumulation and change `--batch_size 16` correspondingly.
 > The data is loaded into GPU memory in advance to speed up the training, you can change it through dataset and dataloader.   
 
