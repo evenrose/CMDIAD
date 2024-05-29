@@ -69,6 +69,9 @@ python main.py \
 --save_feature_for_fusion \
 --save_path datasets/patch_lib \
 ```
+> The results are saved in the `results` folder.
+> If you need to output the raw anomaly scores at image or pixel level to a file, add `--save_raw_results` or `--save_seg_results`. You can use `utils/heatmap` to generate similar visualized results.
+> 
 To train MTFI pipeline with Feature-to-Feature distillation network:
 ```
 python hallucination_network_pretrain.py \
@@ -81,10 +84,9 @@ python hallucination_network_pretrain.py \
 ```
 >📋 For MTFI pipeline with Feature-to-Feature distillation network, PCs or RGB images as the main modality are trained simultaneously.
 > You can define the maximum number of threads with `--cpu_core_num` and leave your note through `--experiment_note`.  
-> If you think your GPU memory is really not enough, maybe try with `--accum_iter 2` for Gradient Accumulation and change `--batch_size 16` correspondingly. 
+> If you think your GPU memory is really not enough, maybe try with `--accum_iter 2` for Gradient Accumulation and change `--batch_size 16` correspondingly.
 > The data is loaded into GPU memory in advance to speed up the training, you can change it through dataset and dataloader.   
-> The results are saved in the `results` folder.
-> If you need to output the raw anomaly scores at image or pixel level to a file, add `--save_raw_results` or `--save_seg_results`. You can use `utils/heatmap` to generate similar visualized results.
+
 
 ### MTFI pipeline with Feature-to-Input distillation network:
 To save the features for distillation network training:
