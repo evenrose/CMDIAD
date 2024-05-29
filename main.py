@@ -57,6 +57,16 @@ def run_3d_ads(args):
     # print(au_pros_001_df.to_markdown(index=False))
 
     if args.save_results:
+
+        if not os.path.exists("results/image_rocauc_results.md"):
+            os.makedirs("results/image_rocauc_results.md")
+        if not os.path.exists("results/pixel_rocauc_results.md"):
+            os.makedirs("results/pixel_rocauc_results.md")
+        if not os.path.exists("results/aupro_results.md"):
+            os.makedirs("results/aupro_results.md")
+        # if not os.path.exists("results/aupro_001_results.md"):
+        #     os.makedirs("results/aupro_001_results.md")
+
         with open("results/image_rocauc_results.md", "a") as tf:
             tf.write('\n\n'+args.experiment_note+'\n')
             tf.write(image_rocaucs_df.to_markdown(index=False))
