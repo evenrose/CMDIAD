@@ -1,7 +1,7 @@
 # Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD
 
 This repository is the official implementation of 
-[Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD](https://arxiv.org/pdf/2405.13571). 
+[Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD](https://arxiv.org/abs/2405.13571). 
 
 ## Visualization of Some Prediction Results
 ![fig1](./figures/fig1.png)
