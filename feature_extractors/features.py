@@ -6,14 +6,16 @@ from matplotlib import pyplot as plt
 from sklearn import random_projection, linear_model
 from sklearn.metrics import roc_auc_score
 import math
-import cupy as cp
-from cupyx.scipy.spatial import distance
+# import cupy as cp
+# from cupyx.scipy.spatial import distance
 
 
 from models.models import Model
 from models.pointnet2_utils import interpolating_points
 from utils.utils import set_seeds, KNNGaussianBlur
 from utils.au_pro_util import calculate_au_pro
+from models.feature_fusion import FeatureFusionBlock
+from models.feature_decoupling import FeatureDecouplingBlock
 from models.hallucination_network import HallucinationCrossModalityNetwork, HallucinationRGBFeatureToXYZInputMLP, HallucinationFeatureToInputConv, HallucinationCrossModalityConv
 from models.hrnet import HRNet
 
@@ -88,8 +90,15 @@ class Features(torch.nn.Module):
         self.ins_id3 = 0
         self.rgb_layernorm = torch.nn.LayerNorm(768, elementwise_affine=False)
 
+        if self.args.use_uff:
+            self.fusion = FeatureFusionBlock(768, 768, mlp_ratio=4.)
+        if self.args.use_fdc:
+            self.fusion = FeatureDecouplingBlock(args, 768, 768, hidden_ratio=2.5)
         if self.args.use_hn:
-            self.fusion = HallucinationCrossModalityNetwork(args, 768, 768, hidden_ratio=2.5)
+            if self.args.rgb_backbone_name == 'vit_small_patch8_224_dino':
+                self.fusion = HallucinationCrossModalityNetwork(args, 768, 384, hidden_ratio=2.5)
+            else:
+                self.fusion = HallucinationCrossModalityNetwork(args, 768, 768, hidden_ratio=2.5)
             self.fusion.cuda()
         if self.args.use_hn_conv:
             self.fusion = HallucinationCrossModalityConv(args, 768, 768)
