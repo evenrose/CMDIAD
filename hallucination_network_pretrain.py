@@ -23,7 +23,7 @@ def get_args_parser():
 
     parser.add_argument('--batch_size', default=64, type=int,
                         help='Batch size')
-    parser.add_argument('--epochs', default=100, type=int)
+    parser.add_argument('--epochs', type=int)
     parser.add_argument('--accum_iter', default=1, type=int,
                         help='Accumulate gradient iterations')
 
@@ -38,7 +38,7 @@ def get_args_parser():
                         help='base learning rate: absolute_lr = base_lr * total_batch_size / 256')
     parser.add_argument('--min_lr', type=float, default=0., metavar='LR',
                         help='lower lr bound for cyclic schedulers that hit 0')
-    parser.add_argument('--warmup_epochs', type=int, default=10,
+    parser.add_argument('--warmup_epochs', type=int, default=1, metavar='N',
                         help='epochs to warmup LR')
 
     parser.add_argument('--data_path', default='', type=str,
@@ -81,6 +81,7 @@ def get_args_parser():
     parser.add_argument('--tensorboard_save', default='./tensorboard_logs')
     parser.add_argument('--sigmoid_loss', default=False, action='store_true')
     parser.add_argument('--c_hrnet', default=48, type=int)
+    parser.add_argument('--rgb_backbone', default='dino', type=str)
     return parser
 
 
@@ -103,7 +104,11 @@ def train_one_epoch(model: torch.nn.Module,
             lr_sched.adjust_learning_rate(optimizer, data_iter_step / len(data_loader) + epoch, args)
 
         if args.train_method == 'HallucinationCrossModality' or args.train_method == 'HallucinationCrossModalityConv':
-            assert samples.shape[2] == 1536
+            if args.rgb_backbone == 'dino_small':
+                assert samples.shape[2] == 1152
+            else:
+                assert samples.shape[2] == 1536
+
             xyz_samples = samples[:, :, :768].to(device)
             rgb_samples = samples[:, :, 768:].to(device)
             distance_to_xyz_real, distance_to_rgb_real = model(xyz_samples, rgb_samples, args.sigmoid_loss, args.dist_method)
@@ -235,7 +240,11 @@ def main(args):
     print("effective batch size: %d" % eff_batch_size)
 
     if args.train_method == 'HallucinationCrossModality':
-        model = HallucinationCrossModalityNetwork(args, 768, 768, mlp_depth=args.mlp_depth)
+        if args.rgb_backbone == 'dino_small':
+            rgb_dim = 384
+        else:
+            rgb_dim = 768
+        model = HallucinationCrossModalityNetwork(args, 768, rgb_dim=rgb_dim, mlp_depth=args.mlp_depth)
     elif args.train_method == 'RGBFeatureToXYZInputMLP':
         model = HallucinationRGBFeatureToXYZInputMLP(args, 768)
     elif args.train_method == 'RGBFeatureToXYZInputConv' or args.train_method == 'XYZFeatureToRGBInputConv':
