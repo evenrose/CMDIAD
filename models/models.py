@@ -346,7 +346,8 @@ class PointTransformer(torch.nn.Module):
             feature_list = self.blocks(x, pos)
             # pick feature without cls
             feature_list = [self.norm(x)[:, 1:].transpose(-1, -2).contiguous() for x in feature_list]
-            x = torch.cat((feature_list[0], feature_list[1], feature_list[2]), dim=1)  # 1152
+            # x = torch.cat((feature_list[0], feature_list[1], feature_list[2]), dim=1)  # 1152
+            x = torch.cat((feature_list[0], feature_list[1]), dim=1)
             return x, center, ori_idx, center_idx
         else:
             B, C, N = pts.shape

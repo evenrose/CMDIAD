@@ -23,10 +23,10 @@ class HallucinationCrossModalityNetwork(nn.Module):
         self.rgb_dim = rgb_dim
 
         self.xyz_norm = nn.LayerNorm(xyz_dim)
-        self.xyz_mlp = MlpModule(in_features=xyz_dim, hidden_features=int(xyz_dim * hidden_ratio), act_layer=nn.GELU, mlp_depth=mlp_depth)
+        self.xyz_mlp = MlpModule(in_features=xyz_dim, hidden_features=int(xyz_dim * hidden_ratio), out_features=self.rgb_dim, act_layer=nn.GELU, mlp_depth=mlp_depth)
 
         self.rgb_norm = nn.LayerNorm(rgb_dim)
-        self.rgb_mlp = MlpModule(in_features=rgb_dim, hidden_features=int(rgb_dim * hidden_ratio), act_layer=nn.GELU, mlp_depth=mlp_depth)
+        self.rgb_mlp = MlpModule(in_features=rgb_dim, hidden_features=int(rgb_dim * hidden_ratio), out_features=self.xyz_dim, act_layer=nn.GELU, mlp_depth=mlp_depth)
 
         self.sig = nn.Sigmoid()
         self.smooth_l1 = nn.SmoothL1Loss(reduction='none')
