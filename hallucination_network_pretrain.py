@@ -23,7 +23,7 @@ def get_args_parser():
 
     parser.add_argument('--batch_size', default=64, type=int,
                         help='Batch size')
-    parser.add_argument('--epochs', type=int)
+    parser.add_argument('--epochs', default=100, type=int)
     parser.add_argument('--accum_iter', default=1, type=int,
                         help='Accumulate gradient iterations')
 
@@ -38,7 +38,7 @@ def get_args_parser():
                         help='base learning rate: absolute_lr = base_lr * total_batch_size / 256')
     parser.add_argument('--min_lr', type=float, default=0., metavar='LR',
                         help='lower lr bound for cyclic schedulers that hit 0')
-    parser.add_argument('--warmup_epochs', type=int, default=1, metavar='N',
+    parser.add_argument('--warmup_epochs', type=int, default=10,
                         help='epochs to warmup LR')
 
     parser.add_argument('--data_path', default='', type=str,
