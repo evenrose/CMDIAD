@@ -164,6 +164,7 @@ if __name__ == '__main__':
     parser.add_argument('--use_hn_from_rgb_conv', default=False, action='store_true')
     parser.add_argument('--use_depth', default=False, action='store_true')
     parser.add_argument('--use_hrnet', default=False, action='store_true')
+    parser.add_argument('--use_uff', default=False, action='store_true')
 
     parser.add_argument('--with_norm', default=True, type=bool)
     parser.add_argument('--rgb_size', default=224, type=int,
