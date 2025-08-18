@@ -1,7 +1,10 @@
 # Incomplete Multimodal Industrial Anomaly Detection via Cross-Modal Distillation
 
 This repository is the official implementation of 
-[Incomplete Multimodal Industrial Anomaly Detection via Cross-Modal Distillation](https://arxiv.org/abs/2405.13571). 
+[Incomplete Multimodal Industrial Anomaly Detection via Cross-Modal Distillation](https://doi.org/10.1016/j.inffus.2025.103572). 
+
+## Accepted paper
+This work has been accepted by *Information Fusion* (2025.08) :blush:
 
 ## Visualization of Some Prediction Results
 ![fig1](./figures/fig1.png)
@@ -216,13 +219,15 @@ python main.py \
 ## Citation
 If you think this repository is helpful for your project, please use the following.
 ```
-@misc{sui2024crossmodal,
-      title={Cross-Modal Distillation in Industrial Anomaly Detection: Exploring Efficient Multi-Modal IAD}, 
-      author={Wenbo Sui and Daniel Lichau and Josselin Lefèvre and Harold Phelippeau},
-      year={2024},
-      eprint={2405.13571},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{SUI2025103572,
+title = {Incomplete multimodal industrial anomaly detection via cross-modal distillation},
+journal = {Information Fusion},
+pages = {103572},
+year = {2025},
+issn = {1566-2535},
+doi = {https://doi.org/10.1016/j.inffus.2025.103572},
+url = {https://www.sciencedirect.com/science/article/pii/S156625352500644X},
+author = {Wenbo Sui and Daniel Lichau and Josselin Lefèvre and Harold Phelippeau},
 }
 ```
 ## Acknowledgement
@@ -230,3 +235,4 @@ We appreciate the following github repos for their valuable code:
 - [M3DM](https://github.com/nomewang/M3DM/)
 - [3D-ADS](https://github.com/eliahuhorwitz/3D-ADS)
 - [Shape-Guided](https://github.com/jayliu0313/Shape-Guided)
+
