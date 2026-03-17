@@ -50,14 +50,15 @@ python utils/preprocessing.py --dataset_path datasets/mvtec_3d/
 ### Checkpoints
 | Purpose                               | Checkpoint                                                                                          |
 |---------------------------------------|-----------------------------------------------------------------------------------------------------|
-| Point Clouds (PCs) feature extractor  | [Point-MAE](https://www.dropbox.com/scl/fi/paum3yx6rbpdxbdbytb6m/pointmae_pretrain.7z?rlkey=qc44l0sf8971gm9pcr0tbteyl&st=zlk1i4g3&dl=0)     |
-| RGB Images feature extractor          | [DINO](https://www.dropbox.com/scl/fi/u082nmb3t7enxpqkn6jk3/dino_vitbase8_pretrain.7z?rlkey=l3uqnh9xfuuumvuzvdp7akbe7&st=h2l7cuj2&dl=0)          |
-| Feature-to-Feature network (main PCs) | [MTFI_FtoF_PCs](https://www.dropbox.com/scl/fi/18ixb16bm0ht4li4pgiuu/MTFI_FtoF_PCs.7z?rlkey=ji9c7p0gjjadnw8crszrl99x9&st=ebgbsadn&dl=0) |
-| Feature-to-Input network (main PCs)   | [MTFI_FtoI_PCs](https://www.dropbox.com/scl/fi/g8x64o0t8mi4azxe7hj2w/MTFI_FtoI_PCs.7z?rlkey=srey47rfji710xo10kwqidl41&st=98stctfa&dl=0) |
-| Input-to-Feature network (main PCs)   | [MTFI_ItoF_PCs](https://www.dropbox.com/scl/fi/dq9t08s8yrp911b3k9heh/MTFI_ItoF_PCs.7z?rlkey=qsdz1sb2vpxanl2o21udsb238&st=2ec27v42&dl=0) |
-| Feature-to-Feature network (main RGB) | [MTFI_FtoF_RGB](https://www.dropbox.com/scl/fi/phh6mpianhr9ffci3b8pe/MTFI_FtoF_RGB.7z?rlkey=w0vs3cyf4ynrw6016px1cpjwm&st=7eik0z5w&dl=0) |
-| Feature-to-Input network (main RGB)   | [MTFI_FtoI_RGB](https://www.dropbox.com/scl/fi/9lgeqw8bx5oa2yucfunaz/MTFI_FtoI_RGB.7z?rlkey=iufhvqkz7vv2tik89fmnuq2s9&st=5o06g2lm&dl=0) |
-| Input-to-Feature network (main RGB)   | [MTFI_ItoF_RGB](https://www.dropbox.com/scl/fi/jivd2yfe7fk9igj4ikpyf/MTFI_ItoF_RGB.7z?rlkey=3mxf9yor5bfin22vd3j7pjfwd&st=sfva1kym&dl=0) |
+| Point Clouds (PCs) feature extractor  | ~~Point-MAE~~     |
+| RGB Images feature extractor          | ~~DINO~~          |
+| Feature-to-Feature network (main PCs) | ~~MTFI_FtoF_PCs~~ |
+| Feature-to-Input network (main PCs)   | ~~MTFI_FtoI_PCs~~ |
+| Input-to-Feature network (main PCs)   | ~~MTFI_ItoF_PCs~~ |
+| Feature-to-Feature network (main RGB) | ~~MTFI_FtoF_RGB~~ |
+| Feature-to-Input network (main RGB)   | ~~MTFI_FtoI_RGB~~ |
+| Input-to-Feature network (main RGB)   | ~~MTFI_ItoF_RGB~~ |
+(Updated 2026.03.17) All the checkpoints can be downloaded from [Zenodo](https://doi.org/10.5281/zenodo.18456013), old share links expired.
 >📋  Please put all checkpoints in folder `checkpoints`. 
 
 ## Training
